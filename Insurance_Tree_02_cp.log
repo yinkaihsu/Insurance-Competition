@@ -1,0 +1,18 @@
+CART 
+
+562937 samples
+    16 predictor
+     5 classes: '1', '2', '3', '4', '5' 
+
+No pre-processing
+Resampling: Cross-Validated (5 fold) 
+Summary of sample sizes: 450349, 450349, 450350, 450351, 450349 
+Resampling results across tuning parameters:
+
+  cp          Accuracy   Kappa     
+  0.01523104  0.5296952  0.18315913
+  0.01669654  0.5164717  0.13748293
+  0.07709604  0.4949647  0.06845954
+
+Accuracy was used to select the optimal model using  the largest value.
+The final value used for the model was cp = 0.01523104.
