@@ -10,6 +10,8 @@
 #install.packages("caret")
 #install.packages("e1071")
 #install.packages("nnet")
+#install.packages("arules")
+#install.packages("arulesViz")
 
 # Call out the installed packages
 library(readr)
@@ -22,6 +24,8 @@ library(partykit)
 library(caret)
 library(e1071)
 library(nnet)
+library(arules)
+library(arulesViz)
 
 # Read data
 insurance <- read_csv("C:\\Users\\ian19_000\\Downloads\\01.2011_Census_Microdata.csv")
@@ -274,4 +278,32 @@ error_3
 
 # Save the algorithm with data fitted
 # save.image(file = "Insurance_Tree_04.RData")
+
+
+### Association Rules ================================================================
+# Change into transaction format
+insurance_trans <- as(insurance, "transactions")
+
+# See the summary of rules
+summary(insurance_trans)
+sort(itemFrequency(insurance_trans), decreasing=T)
+itemFrequencyPlot(insurance_trans, support = 0.2, cex.names = 0.8)
+
+# Find the rules with support >= 0.2 and confidence >= 0.6
+rules <- apriori(insurance_trans, parameter = list(support = 0.2, confidence = 0.6))
+summary(rules)
+plot(rules, measure = c("confidence", "lift"), shading = "support")
+plot(rules, method = "grouped", control = list(gp_labels = gpar(cex = 0.3)))
+
+# Choose the rules with rhs contains "Health" and lift > 1
+rulesOwn <- subset(rules, subset = rhs %pin% "Health" & lift > 1)
+summary(rulesOwn)
+
+# Call out the rules
+#sink("Insurance_ARules_rules.log")
+inspect(sort(rulesOwn, by = "support"))
+#sink()
+
+# Save the algorithm with data fitted
+# save.image(file = "Insurance_ARules.RData")
 
