@@ -1,0 +1,49 @@
+     lhs                   rhs          support confidence     lift  count
+[1]  {MaritalStatus=1}  => {Health=1} 0.2976905  0.6341976 1.347367 167581
+[2]  {PopulationBase=1,                                                   
+      MaritalStatus=1}  => {Health=1} 0.2959514  0.6341114 1.347184 166602
+[3]  {ResidenceType=H,                                                    
+      MaritalStatus=1}  => {Health=1} 0.2916294  0.6377600 1.354936 164169
+[4]  {ResidenceType=H,                                                    
+      PopulationBase=1,                                                   
+      MaritalStatus=1}  => {Health=1} 0.2903682  0.6376996 1.354808 163459
+[5]  {MaritalStatus=1,                                                    
+      CountryOfBirth=1} => {Health=1} 0.2647312  0.6355801 1.350305 149027
+[6]  {PopulationBase=1,                                                   
+      MaritalStatus=1,                                                    
+      CountryOfBirth=1} => {Health=1} 0.2647312  0.6355801 1.350305 149027
+[7]  {ResidenceType=H,                                                    
+      MaritalStatus=1,                                                    
+      CountryOfBirth=1} => {Health=1} 0.2608160  0.6394953 1.358622 146823
+[8]  {ResidenceType=H,                                                    
+      PopulationBase=1,                                                   
+      MaritalStatus=1,                                                    
+      CountryOfBirth=1} => {Health=1} 0.2608160  0.6394953 1.358622 146823
+[9]  {MaritalStatus=1,                                                    
+      EthnicGroup=1}    => {Health=1} 0.2452779  0.6314817 1.341597 138076
+[10] {PopulationBase=1,                                                   
+      MaritalStatus=1,                                                    
+      EthnicGroup=1}    => {Health=1} 0.2443861  0.6313224 1.341259 137574
+[11] {ResidenceType=H,                                                    
+      MaritalStatus=1,                                                    
+      EthnicGroup=1}    => {Health=1} 0.2409097  0.6352590 1.349622 135617
+[12] {ResidenceType=H,                                                    
+      PopulationBase=1,                                                   
+      MaritalStatus=1,                                                    
+      EthnicGroup=1}    => {Health=1} 0.2402542  0.6351461 1.349382 135248
+[13] {MaritalStatus=1,                                                    
+      CountryOfBirth=1,                                                   
+      EthnicGroup=1}    => {Health=1} 0.2284021  0.6323016 1.343339 128576
+[14] {PopulationBase=1,                                                   
+      MaritalStatus=1,                                                    
+      CountryOfBirth=1,                                                   
+      EthnicGroup=1}    => {Health=1} 0.2284021  0.6323016 1.343339 128576
+[15] {ResidenceType=H,                                                    
+      MaritalStatus=1,                                                    
+      CountryOfBirth=1,                                                   
+      EthnicGroup=1}    => {Health=1} 0.2249612  0.6364089 1.352065 126639
+[16] {ResidenceType=H,                                                    
+      PopulationBase=1,                                                   
+      MaritalStatus=1,                                                    
+      CountryOfBirth=1,                                                   
+      EthnicGroup=1}    => {Health=1} 0.2249612  0.6364089 1.352065 126639
