@@ -166,23 +166,16 @@ error_prune_test = 1 - sum(diag(table_prune_test)) / sum(table_prune_test)
 error_prune_test
 #[1] 0.7946916
 
-
+# Print the evaulation result
 #sink("Insurance_Tree_result.log")
-#Loss Matrix:
-lossmatrix
-#
-#Confusion Matrix:
-table_test;table_prune_test
-#
-#Prediction Error:
-error_test;error_prune_test
-#
-#Feature Importance:
-prune_fit$variable.importance
-#
+#lossmatrix
+#table_test;table_prune_test
+#error_test;error_prune_test
+#prune_fit$variable.importance
 #sink()
+
 # Save the algorithm with data fitted
-# save.image(file = "Insurance_Tree.RData")
+#save.image(file = "Insurance_Tree.RData")
 
 
 ### Association Rules ================================================================
@@ -207,21 +200,23 @@ summary(rulesOwn)
 
 # Call out the rules
 #sink("Insurance_ARules_rules.log")
-inspect(sort(rulesOwn, by = "lift"))
+#inspect(sort(rulesOwn, by = "lift"))
 #sink()
 
 # Save the algorithm with data fitted
-# save.image(file = "Insurance_ARules.RData")
+#save.image(file = "Insurance_ARules.RData")
 
 
 ## Multinomial Logistic Regression ==================================================
 multinom_fit <- multinom(Health ~ ., data = insurance)
 
 # Save the algorithm with data fitted
-# save.image(file = "Insurance_MLR.RData")
-# sink("Insurance_MLR_coef.log")
-# multinom_fit
-# sink()
+#save.image(file = "Insurance_MLR.RData")
+
+# Save the coefficients of MLR
+#sink("Insurance_MLR_coef.log")
+#multinom_fit
+#sink()
 
 # # Calculate the p-value
 # # IT TAKES TOO MUCH TIME!!!
@@ -265,7 +260,7 @@ error_1
 #[1] 0.44106
 
 # Save the algorithm with data fitted
-# save.image(file = "Insurance_Tree_01.RData")
+#save.image(file = "Insurance_Tree_01.RData")
 
 
 ### Decision Tree (cp = 0.001) and Pruning (cp = 0.01523104) =======================
@@ -313,7 +308,7 @@ train_control.model <- train(Health ~ ., data = insurance,
 
 # Save the optimal value of cp
 #sink("Insurance_Tree_cp.log")
-train_control.model
+#train_control.model
 #cp = 0.01523104
 #sink()
 
@@ -353,7 +348,7 @@ error_prune
 #[1] 0.44106
 
 # Save the algorithm with data fitted
-# save.image(file = "Insurance_Tree_02.RData")
+#save.image(file = "Insurance_Tree_02.RData")
 
 
 ### Decision Tree (cp = 0.0001) =========================================================
@@ -396,7 +391,7 @@ error_3
 #[1] 0.4334091
 
 # Save the algorithm with data fitted
-# save.image(file = "Insurance_Tree_03.RData")
+#save.image(file = "Insurance_Tree_03.RData")
 
 
 ### Decision Tree (cp = 0.00001) =========================================================
@@ -439,4 +434,4 @@ error_4
 #[1] 0.4080847
 
 # Save the algorithm with data fitted
-# save.image(file = "Insurance_Tree_04.RData")
+#save.image(file = "Insurance_Tree_04.RData")

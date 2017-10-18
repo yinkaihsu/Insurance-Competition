@@ -157,23 +157,16 @@ error_prune_test = 1 - sum(diag(table_prune_test)) / sum(table_prune_test)
 error_prune_test
 #[1] 0.7946916
 
-
+# Print the evaulation result
 #sink("Insurance_Tree_result.log")
-#Loss Matrix:
-lossmatrix
-#
-#Confusion Matrix:
-table_test;table_prune_test
-#
-#Prediction Error:
-error_test;error_prune_test
-#
-#Feature Importance:
-prune_fit$variable.importance
-#
+#lossmatrix
+#table_test;table_prune_test
+#error_test;error_prune_test
+#prune_fit$variable.importance
 #sink()
+
 # Save the algorithm with data fitted
-# save.image(file = "Insurance_Tree.RData")
+#save.image(file = "Insurance_Tree.RData")
 
 
 ### Association Rules ================================================================
