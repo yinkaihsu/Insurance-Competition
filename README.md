@@ -65,9 +65,9 @@ insurance <- insurance %>% select(-PersonID, -ResidenceType, -PopulationBase) %>
 Install some packages we need to use with Decision Tree.
 
 ``` r=
-#install.packages("rpart")      #An algrithom of Decision Tree
+#install.packages("rpart")      #An algorithm of Decision Tree
 #install.packages("rpart.plot") #The visualization of "rpart" package
-#install.packages("partykit")   #Another algrithom of Decision Tree
+#install.packages("partykit")   #Another algorithm of Decision Tree
 
 library(rpart)
 library(rpart.plot)
@@ -86,8 +86,8 @@ lossmatrix_first = matrix(c(  0,  1,  1,  1,  1,
                             120,120,120,120,  0), byrow = T, nrow = 5)
 ```
 
-Moreover, it is acceptable to missclassify the "Health" condition with only one level.
-However, it seems uncceptable with the difference of levels increased.
+Moreover, it is acceptable to misclassify the "Health" condition with only one level.
+However, it seems unacceptable with the difference of levels increased.
 Thus, we construct second loss matrix below.
 
 ``` r=
