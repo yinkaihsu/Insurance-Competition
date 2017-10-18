@@ -1,8 +1,8 @@
 # Insurance-Competition
 
-This is a insurance competition of Cathaylife in 2017.
+This is a insurance competition of Cathaylife, 2017.
 
-2017 / 08 / 26
+2017 / 10 / 16
 
 Created by <font color="#006699">**Ian Hsu**</font> in Insurance Competition of Cathaylife, 2017
 
