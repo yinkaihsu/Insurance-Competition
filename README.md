@@ -250,3 +250,85 @@ prune_fit$variable.importance
 4. The prediction power is not very good on this data set, so we might conclude that it is important to have a look on additional medical report before evaluate the levels of risk using just social factors on the insured person.
 
 ---
+
+## Data Analysis and Evaluation - Association Rules
+
+### Step 0
+
+Install some packages we need to use with Association Rules.
+
+``` r=
+#install.packages("arules")     #An algorithm of Association Rules
+#install.packages("arulesViz")  #The visualization of "arules" package
+
+library(arules)
+library(arulesViz)
+```
+
+### Step 1
+
+We need to change into transaction format.
+
+``` r=
+insurance_trans <- as(insurance, "transactions")
+```
+
+Next, we found the rules with the count >= 100 and confidence >= 0.05.
+
+``` r=
+rules <- apriori(insurance_trans,
+                 parameter = list(maxlen = 5,
+                                  support = 100/562937,
+                                  confidence = 0.05))
+#summary(rules)
+```
+
+### Step 2
+
+Based on the special condition of insurance industry, insurancial agents mostly focus on the rules of unhealthy people.
+
+As a result, we subset the rules with "Health=5" and lift > 1.
+
+``` r=
+rulesOwn <- subset(rules, subset = rhs %pin% "Health=5" & lift > 1)
+#summary(rulesOwn)
+```
+
+### Step 3
+
+Find out top 10 largest lift in ```rulesOwn```.
+
+``` r=
+rulesOwn_sort = sort(rulesOwn, by = "lift")
+inspect(rulesOwn_sort[1:10])
+#     lhs                                                          rhs       
+#[1]  {Sex=1,MaritalStatus=2,EconomicActivity=8,SocialGrade=3}  => {Health=5}
+#[2]  {Age=7,EconomicActivity=8}                                => {Health=5}
+#[3]  {Age=7,EconomicActivity=8,HoursWorked=-9}                 => {Health=5}
+#[4]  {Age=7,Student=2,EconomicActivity=8}                      => {Health=5}
+#[5]  {Age=7,Student=2,EconomicActivity=8,HoursWorked=-9}       => {Health=5}
+#[6]  {Age=7,EthnicGroup=1,EconomicActivity=8}                  => {Health=5}
+#[7]  {Age=7,EthnicGroup=1,EconomicActivity=8,HoursWorked=-9}   => {Health=5}
+#[8]  {Age=7,Student=2,EthnicGroup=1,EconomicActivity=8}        => {Health=5}
+#[9]  {Age=7,CountryOfBirth=1,EthnicGroup=1,EconomicActivity=8} => {Health=5}
+#[10] {Age=7,CountryOfBirth=1,EconomicActivity=8}               => {Health=5}
+#    support      confidence  lift     count
+#[1] 0.0001794162 0.2121849   16.62677 101  
+#[2] 0.0002273789 0.2067851   16.20365 128  
+#[3] 0.0002273789 0.2067851   16.20365 128  
+#[4] 0.0002273789 0.2067851   16.20365 128  
+#[5] 0.0002273789 0.2067851   16.20365 128  
+#[6] 0.0001989565 0.2036364   15.95691 112  
+#[7] 0.0001989565 0.2036364   15.95691 112  
+#[8] 0.0001989565 0.2036364   15.95691 112  
+#[9] 0.0001811926 0.2000000   15.67197 102  
+#[10]0.0001811926 0.1976744   15.48973 102
+```
+
+### Result
+
+1. We find that people with the ages between 65 and 74, ~~with the economically inactive caused by long-term sick or disabled~~, without being a student, with the ethnic group of white, with the country of birth in UK instead of Non UK are the most likely rules of being unhealthy.
+
+2. We need to discard the data with the economically inactive caused by long-term sick or disabled, since it is relatively same as the condition of "Health" is bad.
+
+---
