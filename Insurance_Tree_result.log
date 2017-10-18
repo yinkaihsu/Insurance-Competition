@@ -1,0 +1,35 @@
+#Loss Matrix:
+     [,1] [,2] [,3] [,4] [,5]
+[1,]    0    1    2    6   24
+[2,]    2    0    2    4   12
+[3,]   12    6    0    6   12
+[4,]  144   48   24    0   24
+[5,] 2880  720  240  120    0
+
+#Confusion Matrix:
+    predict
+real     1     2     3     4     5
+   1 15606 23662 10529  2485   700
+   2  6342 16355  9663  4539  1591
+   3   868  3535  4399  4062  1944
+   4   119   594  1160  1838  1089
+   5    41   125   294   592   406
+    predict
+real     1     2     3     4     5
+   1   415 30853 19306  2307   101
+   2    84 14535 17011  6442   418
+   3    10  1949  5211  6529  1109
+   4     2   251   936  2529  1082
+   5     0    59   198   786   415
+
+#Prediction Error:
+[1] 0.6569692
+[1] 0.7946916
+
+#Feature Importance of Pruning Tree:
+ EconomicActivity               Age     MaritalStatus        Occupation          Industry       SocialGrade 
+       55125.1060        37957.9889        11544.6842         3325.5436         3245.3986         2575.8693 
+FamilyComposition          Religion            Region       HoursWorked       EthnicGroup           Student 
+        1853.0231         1777.5423         1757.8407         1338.4296          650.0216          255.0316 
+              Sex    CountryOfBirth 
+         235.3054          197.4269 
