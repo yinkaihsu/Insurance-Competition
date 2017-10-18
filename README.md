@@ -1,6 +1,6 @@
 # Insurance-Competition
 
-This is a insurance competition of Cathaylife, 2017.
+This is an insurance competition of Cathaylife, 2017.
 
 2017 / 10 / 16
 
@@ -248,3 +248,5 @@ prune_fit$variable.importance
 3. "Sex" does not have a great impact on the condition of "Health", which is a primary factor of the insurance fee considered by the agents nowadays.
 
 4. The prediction power is not very good on this data set, so we might conclude that it is important to have a look on additional medical report before evaluate the levels of risk using just social factors on the insured person.
+
+---
