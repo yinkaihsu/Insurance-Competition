@@ -4,7 +4,8 @@ This is an insurance competition of Cathaylife, 2017.
 
 2017 / 10 / 16
 
-Created by <font color="#006699">**Ian Hsu**</font> in Insurance Competition of Cathaylife, 2017
+Created by **Ian Hsu** in Insurance Competition of Cathaylife, 2017
+Powered by Members **徐英愷**, **徐佳筠**, **劉緣梵**, **陳怡涵** of group **城鎮科技場** in Insurance Competition of Cathaylife, 2017
 
 ---
 
